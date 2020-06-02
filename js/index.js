@@ -57,10 +57,17 @@ document.addEventListener('keyup', expandText => {
   }
 });
 
+
 // mousedown mouseup
+
+const destinationBody = document.querySelector('.destination:nth-of-type(2)');
+destinationBody.addEventListener('mousedown', bg => {
+  destinationBody.style.backgroundColor = 'salmon';
+})
 
 const destinationBtn2 = document.querySelector('.destination:nth-of-type(2) .btn');
 destinationBtn2.addEventListener('mousedown', transform => {
+  transform.stopPropagation();
   destinationBtn2.style.transform = 'scale(1.5)';
 });
 
@@ -75,3 +82,23 @@ const destinationBtn3 = document.querySelector('.destination:nth-of-type(3) .btn
 destinationBtn3.addEventListener('contextmenu', rightClick => {
   destinationBtn3.style.backgroundColor = 'salmon';
 });
+
+
+// preventDefault();
+
+const facebookLink = document.querySelector('.nav a:nth-of-type(1)');
+
+facebookLink.addEventListener('click', e => {
+  e.preventDefault();
+})
+
+gsap.registerEffect({
+  name: "fade",
+  effect: (targets, config) => {
+      return gsap.to(targets, {duration: config.duration, opacity: .5});
+  },
+  defaults: {duration: 2}, //defaults get applied to any "config" object passed to the effect
+  extendTimeline: true, //now you can call the effect directly on any GSAP timeline to have the result immediately inserted in the position you define (default is sequenced at the end)
+});
+
+gsap.effects.fade(".nav");
