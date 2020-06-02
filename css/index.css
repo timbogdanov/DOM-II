@@ -174,6 +174,19 @@ img {
     margin: 0 5%;
   }
 }
+.window-size {
+  position: absolute;
+  top: 100px;
+  left: 50px;
+  background: black;
+  padding: 20px;
+  color: white;
+  font-family: monospace;
+  border-radius: 4px;
+}
+.window-size p {
+  padding: 5px;
+}
 .main-navigation {
   width: 100%;
   height: 90px;
